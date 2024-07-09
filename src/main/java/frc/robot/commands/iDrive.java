@@ -30,7 +30,6 @@ public class iDrive extends Command {
 
   @Override
   public void end(boolean interrupted) {
-    mDrivetrain.stop();
   }
 
   @Override

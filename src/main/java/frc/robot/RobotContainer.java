@@ -32,6 +32,7 @@ public class RobotContainer {
     private final Hang mHang = new Hang();
 
     private final SendableChooser<Command> autoChooser;
+    public static SendableChooser<String> m_alliance = new SendableChooser<>();
 
     private final CommandXboxController mDriver = new CommandXboxController(OperatorConstants.driverPort);
     private final CommandXboxController mControls = new CommandXboxController(OperatorConstants.controlsPort);
@@ -113,39 +114,6 @@ public class RobotContainer {
                 .whileTrue(
                         new hangRetract(mHang, -HangConstants.speed));
         
-        mControls
-        .a()
-        .and(mControls.rightBumper())
-        .whileTrue(mDrivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
-        mControls
-                .b()
-                .and(mControls.rightBumper())
-                .whileTrue(mDrivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
-        mControls
-                .x()
-                .and(mControls.rightBumper())
-                .whileTrue(mDrivetrain.sysIdDynamic(SysIdRoutine.Direction.kForward));
-        mControls
-                .y()
-                .and(mControls.rightBumper())
-                .whileTrue(mDrivetrain.sysIdDynamic(SysIdRoutine.Direction.kReverse));
-
-        mControls
-                .a()
-                .and(mControls.leftBumper())
-                .whileTrue(mDrivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
-        mControls
-                .b()
-                .and(mControls.leftBumper())
-                .whileTrue(mDrivetrain.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
-        mControls
-                .x()
-                .and(mControls.leftBumper())
-                .whileTrue(mDrivetrain.sysIdDynamic(SysIdRoutine.Direction.kForward));
-        mControls
-                .y()
-                .and(mControls.leftBumper())
-                .whileTrue(mDrivetrain.sysIdDynamic(SysIdRoutine.Direction.kReverse));
     }
 
     public Command getAutonomousCommand() {
